@@ -1476,236 +1476,6 @@ img.loaded{opacity:1}
   color:var(--text-dim);letter-spacing:.3px;margin-top:3px;
 }
 
-
-
-/* ── Steam trust + PC requirements refinement ───────────────── */
-.text-center{text-align:center;}
-.section-lead.narrow{
-  max-width:760px;
-  margin-left:auto;
-  margin-right:auto;
-  margin-bottom:42px;
-}
-.trust-section,
-.requirements-section{
-  position:relative;
-  overflow:hidden;
-}
-.trust-section::before,
-.requirements-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(40,240,242,.08), transparent 42%),
-    radial-gradient(circle at 15% 70%, rgba(36,194,196,.045), transparent 34%),
-    radial-gradient(circle at 85% 25%, rgba(214,13,66,.035), transparent 24%);
-}
-.trust-section .container,
-.requirements-section .container{
-  position:relative;
-  z-index:1;
-}
-.trust-grid{
-  width:min(100%, 980px);
-  margin:0 auto 22px;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
-}
-.trust-card{
-  position:relative;
-  padding:30px 28px 26px;
-  border-radius:22px;
-  text-align:left;
-  background:
-    linear-gradient(180deg, rgba(7,17,28,.88), rgba(4,15,24,.96)),
-    linear-gradient(135deg, rgba(36,194,196,.07), rgba(214,13,66,.03));
-  border:1px solid rgba(36,194,196,.16);
-  box-shadow:
-    0 18px 44px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,255,255,.03);
-}
-.trust-card::before{
-  content:"";
-  position:absolute;
-  left:0; right:0; top:0;
-  height:3px;
-  border-radius:22px 22px 0 0;
-  background:linear-gradient(90deg, rgba(40,240,242,.95), rgba(36,194,196,.45), transparent);
-}
-.trust-card::after{
-  content:"";
-  position:absolute;
-  width:64px; height:64px;
-  right:-6px; top:-6px;
-  background:radial-gradient(circle, rgba(40,240,242,.18), transparent 68%);
-  pointer-events:none;
-}
-.trust-kicker{
-  font-family:var(--font-cond);
-  font-size:.78rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--cyan-e);
-  margin-bottom:12px;
-}
-.trust-value{
-  font-family:var(--font-display);
-  font-size:clamp(1.55rem, 2.2vw, 2.15rem);
-  line-height:1;
-  letter-spacing:-.03em;
-  color:var(--text);
-  margin:0 0 12px;
-}
-.trust-copy{
-  color:var(--text-muted);
-  line-height:1.7;
-  font-size:1rem;
-  margin:0;
-}
-.trust-strip{
-  width:max-content;
-  max-width:100%;
-  margin:8px auto 0;
-  padding:12px 18px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  color:var(--text-muted);
-  font-size:.96rem;
-  text-align:center;
-  border:1px solid rgba(36,194,196,.16);
-  background:rgba(6,18,28,.72);
-  box-shadow:0 10px 28px rgba(0,0,0,.16);
-}
-.trust-strip-dot{
-  width:9px;height:9px;border-radius:50%;
-  background:linear-gradient(180deg, var(--cyan-e), var(--cyan));
-  box-shadow:0 0 18px rgba(40,240,242,.45);
-  flex:0 0 auto;
-}
-.req-grid{
-  width:min(100%, 1120px);
-  margin:0 auto 20px;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
-}
-.req-card{
-  position:relative;
-  padding:28px 26px 22px;
-  border-radius:24px;
-  text-align:left;
-  background:
-    linear-gradient(180deg, rgba(6,16,26,.9), rgba(4,14,22,.97)),
-    radial-gradient(circle at 100% 0%, rgba(36,194,196,.08), transparent 28%);
-  border:1px solid rgba(36,194,196,.15);
-  box-shadow:
-    0 18px 44px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,255,255,.025);
-}
-.req-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:24px;
-  padding:1px;
-  background:linear-gradient(180deg, rgba(40,240,242,.32), rgba(255,255,255,0), rgba(36,194,196,.10));
-  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-  pointer-events:none;
-}
-.req-card.featured{
-  border-color:rgba(40,240,242,.28);
-  box-shadow:
-    0 22px 56px rgba(0,0,0,.34),
-    0 0 0 1px rgba(40,240,242,.08),
-    0 0 36px rgba(40,240,242,.08);
-}
-.req-card.featured::after{
-  content:"";
-  position:absolute;
-  inset:auto 26px 0;
-  height:42px;
-  background:radial-gradient(circle at 50% 0%, rgba(40,240,242,.15), transparent 72%);
-  pointer-events:none;
-}
-.req-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 13px;
-  border-radius:999px;
-  font-family:var(--font-cond);
-  font-size:.76rem;
-  font-weight:700;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--text);
-  background:rgba(36,194,196,.10);
-  border:1px solid rgba(36,194,196,.18);
-  margin-bottom:18px;
-}
-.req-card.featured .req-badge{
-  background:rgba(40,240,242,.12);
-  border-color:rgba(40,240,242,.24);
-  color:var(--cyan-e);
-}
-.req-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-.req-list li{
-  display:grid;
-  grid-template-columns:114px 1fr;
-  gap:14px;
-  align-items:start;
-  padding:12px 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.req-list li:last-child{border-bottom:none;padding-bottom:2px;}
-.req-list strong{
-  font-family:var(--font-cond);
-  font-size:.9rem;
-  letter-spacing:.04em;
-  color:var(--text);
-}
-.req-list span{
-  color:var(--text-muted);
-  line-height:1.6;
-  font-size:.96rem;
-}
-.req-micro{
-  width:min(100%, 920px);
-  margin:10px auto 0;
-  padding:14px 18px;
-  border-radius:18px;
-  text-align:center;
-  color:var(--text-muted);
-  font-size:.95rem;
-  line-height:1.7;
-  background:rgba(6,18,28,.74);
-  border:1px solid rgba(36,194,196,.14);
-  box-shadow:0 12px 34px rgba(0,0,0,.14);
-}
-@media (max-width: 900px){
-  .trust-grid,.req-grid{grid-template-columns:1fr;width:min(100%, 760px);}
-  .trust-strip{width:100%;border-radius:18px;}
-}
-@media (max-width: 640px){
-  .trust-card,.req-card{padding:24px 20px 20px;border-radius:20px;}
-  .req-list li{grid-template-columns:1fr;gap:6px;padding:11px 0;}
-  .req-list strong{font-size:.84rem;letter-spacing:.09em;text-transform:uppercase;color:var(--cyan-e);}
-  .req-list span{font-size:.94rem;}
-  .section-lead.narrow{margin-bottom:32px;}
-  .trust-strip,.req-micro{padding:13px 14px;font-size:.9rem;}
-}
 /* ── Dramatic closing section ──────────────────────────────── */
 .closing-section{
   position:relative;
@@ -1948,13 +1718,13 @@ img.loaded{opacity:1}
   <div class="topbar-controls">
     <!-- Language -->
     <div role="group" aria-label="Language selection">
-      <button class="lang-btn" data-lang="en" aria-label="English" onclick="setLang('en', false, true)">EN</button>
+      <button class="lang-btn" data-lang="en" aria-label="English" onclick="setLang('en')">EN</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="fr" aria-label="Français" onclick="setLang('fr', false, true)">FR</button>
+      <button class="lang-btn" data-lang="fr" aria-label="Français" onclick="setLang('fr')">FR</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="de" aria-label="Deutsch" onclick="setLang('de', false, true)">DE</button>
+      <button class="lang-btn" data-lang="de" aria-label="Deutsch" onclick="setLang('de')">DE</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="es" aria-label="Español" onclick="setLang('es', false, true)">ES</button>
+      <button class="lang-btn" data-lang="es" aria-label="Español" onclick="setLang('es')">ES</button>
     </div>
 
   </div>
@@ -2019,7 +1789,7 @@ img.loaded{opacity:1}
 <div id="proof-strip" aria-label="Key facts">
   <div class="proof-marquee" aria-hidden="true">
     <!-- clone for seamless loop -->
-    <span class="proof-item"><span class="pi-num">Steam</span><span data-i18n="proof_1">Official Review Snapshot</span></span>
+    <span class="proof-item"><span class="pi-num">10M+</span><span data-i18n="proof_1">Players Worldwide</span></span>
     <span class="proof-sep">◆</span>
     <span class="proof-item"><span class="pi-num" data-i18n="pnum_2">Open World</span><span data-i18n="proof_2">Massive Contaminated Map</span></span>
     <span class="proof-sep">◆</span>
@@ -2029,10 +1799,10 @@ img.loaded{opacity:1}
     <span class="proof-sep">◆</span>
     <span class="proof-item"><span class="pi-num" data-i18n="pnum_5">PvE-First</span><span data-i18n="proof_5">Optional PvP</span></span>
     <span class="proof-sep">◆</span>
-    <span class="proof-item"><span class="pi-num" data-i18n="pnum_6">Windows</span><span data-i18n="proof_6">Windows PC</span></span>
+    <span class="proof-item"><span class="pi-num" data-i18n="pnum_6">PC &amp; More</span><span data-i18n="proof_6">Multi-Platform</span></span>
     <span class="proof-sep">◆</span>
     <!-- duplicate (aria-hidden so screen readers skip repeated items) -->
-    <span class="proof-item" aria-hidden="true"><span class="pi-num">Steam</span><span data-i18n="proof_1">Official Review Snapshot</span></span>
+    <span class="proof-item" aria-hidden="true"><span class="pi-num">10M+</span><span data-i18n="proof_1">Players Worldwide</span></span>
     <span class="proof-sep" aria-hidden="true">◆</span>
     <span class="proof-item" aria-hidden="true"><span class="pi-num" data-i18n="pnum_2">Open World</span><span data-i18n="proof_2">Massive Contaminated Map</span></span>
     <span class="proof-sep" aria-hidden="true">◆</span>
@@ -2042,7 +1812,7 @@ img.loaded{opacity:1}
     <span class="proof-sep" aria-hidden="true">◆</span>
     <span class="proof-item" aria-hidden="true"><span class="pi-num" data-i18n="pnum_5">PvE-First</span><span data-i18n="proof_5">Optional PvP</span></span>
     <span class="proof-sep" aria-hidden="true">◆</span>
-    <span class="proof-item" aria-hidden="true"><span class="pi-num" data-i18n="pnum_6">Windows</span><span data-i18n="proof_6">Windows PC</span></span>
+    <span class="proof-item" aria-hidden="true"><span class="pi-num" data-i18n="pnum_6">PC &amp; More</span><span data-i18n="proof_6">Multi-Platform</span></span>
     <span class="proof-sep" aria-hidden="true">◆</span>
   </div>
 </div>
@@ -2129,6 +1899,44 @@ img.loaded{opacity:1}
         </div>
       </div>
     </div>
+  </div>
+</section>
+<section id="pc-requirements" class="section requirements-section">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-eyebrow" data-i18n="req_eye">Before You Install</p>
+      <h2 class="section-title" data-i18n-html="req_title">Can Your PC <span class="c">Run It?</span></h2>
+      <p class="section-lead narrow" data-i18n="req_lead">Built for Windows. Best experienced with enough free space, stable internet, and an SSD.</p>
+    </div>
+    <div class="req-grid">
+      <article class="req-card">
+        <div class="req-badge" data-i18n="req_min_badge">Minimum</div>
+        <ul class="req-list">
+          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_min_os">Windows 10 64-bit Operating System</span></li>
+          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_min_cpu">Intel Core i5-4460</span></li>
+          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_min_ram">8 GB RAM</span></li>
+          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_min_gpu">Nvidia GTX 750ti 4G / AMD Radeon RX550</span></li>
+          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_min_dx">Version 11</span></li>
+          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_min_net">Broadband Internet connection</span></li>
+          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_min_storage">90 GB available space</span></li>
+          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_min_notes">SSD is highly recommended</span></li>
+        </ul>
+      </article>
+      <article class="req-card featured">
+        <div class="req-badge" data-i18n="req_rec_badge">Recommended</div>
+        <ul class="req-list">
+          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_rec_os">Windows 10 64-bit Operating System</span></li>
+          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_rec_cpu">Intel Core i7-7700</span></li>
+          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_rec_ram">16 GB RAM</span></li>
+          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_rec_gpu">Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380</span></li>
+          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_rec_dx">Version 12</span></li>
+          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_rec_net">Broadband Internet connection</span></li>
+          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_rec_storage">90 GB available space</span></li>
+          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_rec_notes">SSD is highly recommended</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="req-micro" data-i18n="req_micro">Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended</div>
   </div>
 </section>
 
@@ -2801,79 +2609,6 @@ img.loaded{opacity:1}
 <hr class="hr-cyan"/>
 
 <!-- ============================================================
-     STEAM TRUST SNAPSHOT
-     ============================================================ -->
-<section id="steam-trust" class="section trust-section">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow" data-i18n="steam_eye">Steam Trust</p>
-      <h2 class="section-title" data-i18n-html="steam_title">What Players Are Saying on <span class="c">Steam</span></h2>
-      <p class="section-lead narrow" data-i18n="steam_lead">A quick snapshot of how players describe Once Human on Steam right now.</p>
-    </div>
-    <div class="trust-grid">
-      <article class="trust-card">
-        <div class="trust-kicker" data-i18n="steam_recent_kicker">Recent Reviews</div>
-        <h3 class="trust-value" data-i18n="steam_recent_value">Very Positive</h3>
-        <p class="trust-copy" data-i18n="steam_recent_copy">Fresh player sentiment points to a strong current experience, especially around atmosphere, progression, and co-op survival.</p>
-      </article>
-      <article class="trust-card">
-        <div class="trust-kicker" data-i18n="steam_eng_kicker">English Reviews</div>
-        <h3 class="trust-value" data-i18n="steam_eng_value">Mostly Positive</h3>
-        <p class="trust-copy" data-i18n="steam_eng_copy">The English-speaking player base continues to rate the experience positively across the long-term survival loop.</p>
-      </article>
-    </div>
-    <div class="trust-strip">
-      <span class="trust-strip-dot" aria-hidden="true"></span>
-      <span data-i18n="steam_source">Review sentiment based on the official Steam page.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PC REQUIREMENTS
-     ============================================================ -->
-<section id="pc-requirements" class="section requirements-section">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow" data-i18n="req_eye">Before You Install</p>
-      <h2 class="section-title" data-i18n-html="req_title">Can Your PC <span class="c">Run It?</span></h2>
-      <p class="section-lead narrow" data-i18n="req_lead">Built for Windows. Best experienced with enough free space, stable internet, and an SSD.</p>
-    </div>
-    <div class="req-grid">
-      <article class="req-card">
-        <div class="req-badge" data-i18n="req_min_badge">Minimum</div>
-        <ul class="req-list">
-          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_min_os">Windows 10 64-bit Operating System</span></li>
-          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_min_cpu">Intel Core i5-4460</span></li>
-          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_min_ram">8 GB RAM</span></li>
-          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_min_gpu">Nvidia GTX 750ti 4G / AMD Radeon RX550</span></li>
-          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_min_dx">Version 11</span></li>
-          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_min_net">Broadband Internet connection</span></li>
-          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_min_storage">90 GB available space</span></li>
-          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_min_notes">SSD is highly recommended</span></li>
-        </ul>
-      </article>
-      <article class="req-card featured">
-        <div class="req-badge" data-i18n="req_rec_badge">Recommended</div>
-        <ul class="req-list">
-          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_rec_os">Windows 10 64-bit Operating System</span></li>
-          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_rec_cpu">Intel Core i7-7700</span></li>
-          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_rec_ram">16 GB RAM</span></li>
-          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_rec_gpu">Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380</span></li>
-          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_rec_dx">Version 12</span></li>
-          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_rec_net">Broadband Internet connection</span></li>
-          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_rec_storage">90 GB available space</span></li>
-          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_rec_notes">SSD is highly recommended</span></li>
-        </ul>
-      </article>
-    </div>
-    <div class="req-micro" data-i18n="req_micro">Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended</div>
-  </div>
-</section>
-
-<hr class="hr-red"/>
-
-<!-- ============================================================
      DRAMATIC CLOSING CTA
      ============================================================ -->
 <section class="closing-section" aria-label="Final call to action">
@@ -2890,13 +2625,13 @@ img.loaded{opacity:1}
         data-i18n="close_cta">
         Claim Your Territory — Free →
       </a>
-      <p class="closing-micro" data-i18n="close_micro">Free to play · Windows PC · Optional in-game purchases</p>
+      <p class="closing-micro" data-i18n="close_micro">Free to play · PC &amp; Mobile · No credit card required</p>
     </div>
     <div class="closing-proof-strip" role="list">
       <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re1">100% Free to Play</span></div>
       <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re2">No Pay-to-Win</span></div>
       <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re3">Global Servers</span></div>
-      <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re6">Windows PC</span></div>
+      <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re6">Cross-Platform</span></div>
       <div class="cl-proof" role="listitem"><span class="cl-proof-ck">✓</span><span data-i18n="re5">Regular Updates</span></div>
     </div>
   </div>
@@ -3056,7 +2791,7 @@ img.loaded{opacity:1}
     </div>
     <div class="reassure-item" role="listitem">
       <span class="reassure-icon" aria-hidden="true">🎮</span>
-      <span data-i18n="re6">Windows PC</span>
+      <span data-i18n="re6">Cross-Platform</span>
     </div>
   </div>
 </div>
@@ -3196,10 +2931,10 @@ var I18N={
     hero_title2:'Watching You',
     hero_sub:'The contamination rewrote everything you knew about survival. The rules are gone. The world is hostile. And something out there is patient.',
     hero_cta:'Enter If You Dare — It\'s Free',
-    hero_micro:'Free to play on Steam. Windows PC required for the best experience.',
+    hero_micro:'Join over 10 million survivors. No credit card required.',
     watch_trailer:'▶ Watch Trailer',
-    proof_1:'Official Review Snapshot',proof_2:'Multiplayer Survival',proof_3:'No Paywalls, All Skill',
-    proof_4:'Your Rules',proof_5:'Optional PvP',proof_6:'Windows PC',
+    proof_1:'Players Worldwide',proof_2:'Massive Contaminated Map',proof_3:'No Paywalls, All Skill',
+    proof_4:'Your Rules',proof_5:'Optional PvP',proof_6:'Multi-Platform',
     core_eye:'What You\'ll Actually Do',
     core_title:'The Loop That <span class="c">Never Gets Old</span>',
     core_lead:'Every session in Once Human builds on the last. Explore. Scavenge. Build. Fight. Level up. Repeat — but it never feels like a treadmill.',
@@ -3279,7 +3014,7 @@ var I18N={
     cmp_r5:'Base Building Depth',cmp_r6:'Deviant/Companion System',cmp_r7:'Regular Content Updates',
     gal_eye:'Screenshots',gal_title:'See the <span class="c">World</span>',
     trail_eye:'Preview',trail_title:'Watch the <span class="c">Contamination</span>',trail_label:'Official Gameplay Trailer',
-    cta3_h:'Ready to Enter the Mist?',cta3_p:'Once Human is free to start on Steam. Step into a hostile open world, build your territory, and see how far you can survive.',cta3_btn:'Play Free on Steam →',cta3_sub:'Windows PC · Online features · Optional in-game purchases.',
+    cta3_h:'Still on the Fence?',cta3_p:'Once Human is free. Nothing to lose and an entire world to gain.',cta3_btn:'Play Free — Start Now',cta3_sub:'No credit card. No commitment. Free to play.',
     faq_eye:'Questions',faq_title:'Everything You Want to <span class="c">Know</span>',
     faq1_q:'Is Once Human really free to play?',faq1_a:'Yes. Free to download and play. No core content locked behind a paywall.',
     faq2_q:'Can I play solo?',faq2_a:'Solo play is fully supported and deliberately designed to be satisfying.',
@@ -3287,14 +3022,14 @@ var I18N={
     faq4_q:'What are Deviants?',faq4_a:'Anomalous entities you capture and bond with. Companions, base workers, and ability augmenters.',
     faq5_q:'How does base building work?',faq5_a:'Claim territory, build modularly — walls, floors, power infrastructure, turrets, traps.',
     faq6_q:'Is there a story?',faq6_a:'Both narrative and sandbox. A genuine mystery about Stardust that rewards engagement.',
-    faq7_q:'Can my PC run Once Human?',faq7_a:'Once Human is built for Windows 10 64-bit. Minimum starts at an Intel Core i5-4460, 8 GB RAM, GTX 750 Ti / RX 550, broadband internet, and 90 GB of free space. An SSD is highly recommended.',
-    faq8_q:'Does the game receive updates?',faq8_a:'The Steam page points to ongoing updates and evolving content. Expect the experience to keep shifting as new content rolls in.',
+    faq7_q:'What are the PC requirements?',faq7_a:'Minimum: i5-4460, 8GB RAM, GTX 970, 50GB storage. Recommended: i7-6700K, 16GB RAM, GTX 1080.',
+    faq8_q:'Does it have regular updates?',faq8_a:'Yes. Seasonal content, new zones, new Deviants. Major updates every 6–8 weeks.',
     faq9_q:'Will I lose progress if my base is destroyed?',faq9_a:'In PvE mode, other players can\'t destroy your base. You never lose blueprints or research.',
-    faq10_q:'What kind of world does it have?',faq10_a:'A large contaminated open world with multiple biomes, dangerous zones, hidden facilities, and plenty of room to explore, build, and fight for resources.',
-    faq11_q:'Are there in-game purchases?',faq11_a:'Steam lists optional in-game purchases and online features. The core appeal on this page is the free-to-play survival loop, territory building, and co-op progression.',
-    re1:'100% Free to Play',re2:'No Pay-to-Win',re3:'Online Co-op',re4:'Secure Platform',re5:'Regular Updates',re6:'Windows PC',
-    sticky_label:'Once Human is Live',sticky_reassure:'Free to play · Windows PC',sticky_btn:'Play Free →',
-    footer_brand_p:'A multiplayer open-world survival experience in a contaminated future. Build. Fight. Uncover the truth. Free to play on Steam.',
+    faq10_q:'How large is the game world?',faq10_a:'Over 200 square kilometers. Different biomes. After hundreds of hours, players still find new locations.',
+    faq11_q:'Is this game pay-to-win?',faq11_a:'No. Monetization is cosmetic-only. Competitive advantage comes from time and skill.',
+    re1:'100% Free to Play',re2:'No Pay-to-Win',re3:'Global Servers',re4:'Secure Platform',re5:'Regular Updates',re6:'Cross-Platform',
+    sticky_label:'Once Human is Live',sticky_reassure:'Free · No credit card required',sticky_btn:'Play Free →',
+    footer_brand_p:'An open-world survival experience in a contaminated future. Build. Fight. Uncover the truth. Free to play.',
     footer_col1:'Play',footer_play1:'Download Free',footer_play2:'Game Modes',footer_play3:'Playstyles',footer_play4:'New Player Guide',
     footer_col2:'Explore',footer_ex1:'The World',footer_ex2:'Crafting',footer_ex3:'Weapons',footer_ex4:'Base Building',
     footer_col3:'Legal',footer_priv:'Privacy Policy',footer_terms:'Terms of Use',footer_faq:'FAQ',
@@ -3303,36 +3038,27 @@ var I18N={
     priv_title:'Privacy Policy',
     priv_p1:'This landing page is operated by an independent affiliate partner. We collect only anonymized analytics data via Google Analytics 4.',
     priv_h2:'Data We Collect',priv_p2:'GA4 collects anonymized page views, session data, and interaction events to optimize this page.',
-    priv_h3:'Cookies',priv_p3:'We use localStorage for language and theme preferences. GA4 may set analytics cookies.',
+    priv_h3:'Cookies',priv_p3:'We use localStorage for language/theme preferences. GA4 may set analytics cookies.',
     priv_h4:'Third-Party Links',priv_p4:'Clicking to the Once Human platform subjects you to their privacy practices.',
     priv_h5:'Your Rights',priv_p5:'You can request access or deletion of your data. Contact the site operator for questions.',
     terms_title:'Terms of Use',
     terms_p1:'By accessing this page, you agree to these terms. This is operated by an independent affiliate partner.',
-    terms_h2:'Affiliate Disclosure',terms_p2:'This page contains affiliate links. We may earn a commission if you click through and start playing. The game remains free to play.',
+    terms_h2:'Affiliate Disclosure',terms_p2:'This page contains affiliate links. We may earn a commission if you register. The game remains free.',
     terms_h3:'Accuracy',terms_p3:'We maintain accurate information, but game features may change. Check the official platform for current info.',
     terms_h4:'Prohibited Use',terms_p4:'Reproduction or scraping of this content is prohibited without written permission.',
     terms_h5:'Limitation of Liability',terms_p5:'This page is informational. We are not liable for decisions made from its content.',
-    pnum_2:'Open World',pnum_3:'Free',pnum_4:'Solo & Squad',pnum_5:'PvE-First',pnum_6:'Windows',stat_coop:'4-Player',stat_free:'Free',cval_massive:'Massive',cval_medium:'Medium',cval_small:'Small',cval_deep:'✓ Deep',cval_minimal:'Minimal',cval_basic:'Basic',cval_advanced:'✓ Advanced',cval_moderate:'Moderate',cval_unique:'✓ Unique',cval_slow:'Slow',cval_occasional:'Occasional',
+    pnum_2:'Open World',pnum_3:'Free',pnum_4:'Solo & Squad',pnum_5:'PvE-First',pnum_6:'PC & More',stat_coop:'4-Player',stat_free:'Free',cval_massive:'Massive',cval_medium:'Medium',cval_small:'Small',cval_deep:'✓ Deep',cval_minimal:'Minimal',cval_basic:'Basic',cval_advanced:'✓ Advanced',cval_moderate:'Moderate',cval_unique:'✓ Unique',cval_slow:'Slow',cval_occasional:'Occasional',
     vp1_h:'Massive Open World',vp1_p:'Contaminated biomes, underground ruins, and a map that rewards every direction you explore.',
     vp2_h:'Deep Crafting System',vp2_p:'Five tiers of progression. Hundreds of blueprints. Every unlock reshapes your playstyle.',
-    vp3_h:'Co-op Ready',vp3_p:'Built for solo survival or online co-op. World bosses, deep zones, and territory defense feel even better with a squad.',
-    vp4_h:'Zero Cost to Start',vp4_p:'Free to start on Steam. Core survival, building, and progression are playable without an upfront purchase.',
-    trail_desc:'See Once Human in motion — the biomes, the aberrations, the territory fights, and the survival moments that define the world on Steam.',
+    vp3_h:'Co-op Ready',vp3_p:'Built for squads of up to four. World bosses, deep zones, and base defense all scale with your team.',
+    vp4_h:'Zero Cost to Start',vp4_p:'No purchase price. No subscription. No gameplay locked behind a paywall. Pure skill.',
+    trail_desc:'See Once Human in motion — the biomes, the aberrations, the base raids, the moments that make players stay for months. Every frame is a world you\'ll actually survive in.',
     trail_cta:'Play Free Now →',
-    steam_eye:'Steam Trust',steam_title:'What Players Are Saying on <span class="c">Steam</span>',steam_lead:'A quick snapshot of how players describe Once Human on Steam right now.',
-    steam_recent_kicker:'Recent Reviews',steam_recent_value:'Very Positive',steam_recent_copy:'Fresh player sentiment points to a strong current experience, especially around atmosphere, progression, and co-op survival.',
-    steam_eng_kicker:'English Reviews',steam_eng_value:'Mostly Positive',steam_eng_copy:'The English-speaking player base continues to rate the experience positively across the long-term survival loop.',
-    steam_source:'Review sentiment based on the official Steam page.',
-    req_eye:'Before You Install',req_title:'Can Your PC <span class="c">Run It?</span>',req_lead:'Built for Windows. Best experienced with enough free space, stable internet, and an SSD.',
-    req_min_badge:'Minimum',req_rec_badge:'Recommended',req_os:'OS',req_cpu:'Processor',req_ram:'Memory',req_gpu:'Graphics',req_dx:'DirectX',req_net:'Network',req_storage:'Storage',req_notes:'Notes',
-    req_min_os:'Windows 10 64-bit Operating System',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Broadband Internet connection',req_min_storage:'90 GB available space',req_min_notes:'SSD is highly recommended',
-    req_rec_os:'Windows 10 64-bit Operating System',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Broadband Internet connection',req_rec_storage:'90 GB available space',req_rec_notes:'SSD is highly recommended',
-    req_micro:'Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended'
     close_eye:'The Mist Doesn\'t Wait',
     close_title:'Your Survival Story Starts <span class="c">Right Now</span>',
     close_sub:'Once Human costs nothing to enter. The world is live — full of players building, fighting, and carving out territory. Every day you wait is a day they\'re ahead of you.',
     close_cta:'Claim Your Territory — Free →',
-    close_micro:'Free to play · Windows PC · Optional in-game purchases',
+    close_micro:'Free to play · PC & Mobile · No credit card required',
     fav1_d:'Zero barrier to entry. Download and play without spending a cent — all core content, all progression, no paywalls.',
     fav1_vs:'Others: paid entry required',
     fav2_d:'A vast contaminated landscape with distinct biomes, underground facilities, and a map large enough to lose yourself in for hundreds of hours.',
@@ -3355,10 +3081,10 @@ var I18N={
     hero_title2:'Vous Observe',
     hero_sub:'La contamination a tout réécrit. Les règles que vous connaissiez n\'existent plus. Le monde est devenu hostile — et ce qui rôde là-dehors est d\'une patience redoutable.',
     hero_cta:'Entrez si Vous l\'Osez — C\'est Gratuit',
-    hero_micro:'Gratuit sur Steam. Windows PC recommandé pour la meilleure expérience.',
+    hero_micro:'Rejoignez des millions de survivants. Sans carte bancaire.',
     watch_trailer:'▶ Voir la Bande-Annonce',
     proof_1:'Joueurs dans le Monde',proof_2:'Carte Contaminée Massive',proof_3:'Sans Paywalls, que du Skill',
-    proof_4:'Vos Règles',proof_5:'PvP Optionnel',proof_6:'Windows PC',
+    proof_4:'Vos Règles',proof_5:'PvP Optionnel',proof_6:'Multi-Plateforme',
     core_eye:'Ce que vous allez faire',
     core_title:'La Boucle qui ne <span class="c">Lasse Jamais</span>',
     core_lead:'Chaque session dans Once Human s\'appuie sur la précédente. Explorer. Récupérer. Construire. Combattre.',
@@ -3446,12 +3172,12 @@ var I18N={
     faq4_q:'Que sont les Deviants ?',faq4_a:'Des entités anormales que vous capturez et dont vous devenez l\'allié.',
     faq5_q:'Comment fonctionne la construction de base ?',faq5_a:'Revendiquez un territoire et construisez librement avec un système modulaire.',
     faq6_q:'Y a-t-il une histoire ?',faq6_a:'Les deux. Une narration et un bac à sable coexistent harmonieusement.',
-    faq7_q:'Mon PC peut-il faire tourner Once Human ?',faq7_a:'Once Human est conçu pour Windows 10 64 bits. Le minimum démarre avec un Intel Core i5-4460, 8 Go de RAM, GTX 750 Ti / RX 550, internet haut débit et 90 Go d'espace libre. SSD fortement recommandé.',
+    faq7_q:'Quelle est la configuration PC requise ?',faq7_a:'Minimum : i5-4460, 8 Go RAM, GTX 970, 50 Go. Recommandé : i7-6700K, 16 Go RAM, GTX 1080.',
     faq8_q:'Y a-t-il des mises à jour régulières ?',faq8_a:'Oui. Contenu saisonnier et nouvelles zones toutes les 6 à 8 semaines.',
     faq9_q:'Perdrai-je ma progression si ma base est détruite ?',faq9_a:'En mode PvE, les autres joueurs ne peuvent pas détruire votre base. Vous ne perdez jamais vos plans.',
     faq10_q:'Quelle est la taille du monde de jeu ?',faq10_a:'Plus de 200 kilomètres carrés. Des biomes différents. Des heures de contenu inexploré.',
     faq11_q:'Le jeu est-il pay-to-win ?',faq11_a:'Non. La monétisation est uniquement cosmétique. L\'avantage vient du temps et des compétences.',
-    re1:'100% Gratuit',re2:'Pas de Pay-to-Win',re3:'Serveurs Mondiaux',re4:'Plateforme Sécurisée',re5:'Mises à Jour Régulières',re6:'Windows PC',
+    re1:'100% Gratuit',re2:'Pas de Pay-to-Win',re3:'Serveurs Mondiaux',re4:'Plateforme Sécurisée',re5:'Mises à Jour Régulières',re6:'Multi-Plateforme',
     sticky_label:'Once Human est En Ligne',sticky_reassure:'Gratuit · Sans carte bancaire',sticky_btn:'Jouer →',
     footer_brand_p:'Une expérience de survie en monde ouvert dans un futur contaminé. Gratuit.',
     footer_col1:'Jouer',footer_play1:'Télécharger Gratuitement',footer_play2:'Modes de Jeu',footer_play3:'Styles de Jeu',footer_play4:'Guide Nouveau Joueur',
@@ -3470,27 +3196,18 @@ var I18N={
     terms_h3:'Exactitude',terms_p3:'Nous maintenons des informations exactes, mais les fonctionnalités peuvent changer.',
     terms_h4:'Utilisation Interdite',terms_p4:'La reproduction ou le scraping de ce contenu est interdit.',
     terms_h5:'Limitation de Responsabilité',terms_p5:'Cette page est informative. Nous ne sommes pas responsables des décisions prises sur la base de son contenu.',
-    pnum_2:'Monde Ouvert',pnum_3:'Gratuit',pnum_4:'Solo & Escouade',pnum_5:'PvE-First',pnum_6:'Windows',stat_coop:'4 Joueurs',stat_free:'Gratuit',cval_massive:'Massive',cval_medium:'Moyen',cval_small:'Petit',cval_deep:'✓ Profond',cval_minimal:'Minimal',cval_basic:'Basique',cval_advanced:'✓ Avancé',cval_moderate:'Modéré',cval_unique:'✓ Unique',cval_slow:'Lent',cval_occasional:'Occasionnel',
+    pnum_2:'Monde Ouvert',pnum_3:'Gratuit',pnum_4:'Solo & Escouade',pnum_5:'PvE-First',pnum_6:'PC & Plus',stat_coop:'4 Joueurs',stat_free:'Gratuit',cval_massive:'Massive',cval_medium:'Moyen',cval_small:'Petit',cval_deep:'✓ Profond',cval_minimal:'Minimal',cval_basic:'Basique',cval_advanced:'✓ Avancé',cval_moderate:'Modéré',cval_unique:'✓ Unique',cval_slow:'Lent',cval_occasional:'Occasionnel',
     vp1_h:'Monde Ouvert Massif',vp1_p:'Biomes contaminés, ruines souterraines, et une carte qui récompense chaque direction explorée.',
     vp2_h:'Système d\'Artisanat Profond',vp2_p:'Cinq niveaux de progression. Des centaines de plans. Chaque déverouillage change votre façon de jouer.',
     vp3_h:'Co-op Prêt',vp3_p:'Conçu pour des escouades de quatre. Les boss mondiaux et zones profondes s\'adaptent à votre équipe.',
     vp4_h:'Zéro Coût pour Démarrer',vp4_p:'Aucun prix d\'achat. Aucun abonnement. Aucun gameplay verrouillé. Pur skill.',
     trail_desc:'Regardez Once Human en mouvement — les biomes, les aberrations, les raids de base. Chaque image est un monde dans lequel vous survivrez vraiment.',
     trail_cta:'Jouer Gratuitement →',
-    steam_eye:'Confiance Steam',steam_title:'Ce que disent les joueurs sur <span class="c">Steam</span>',steam_lead:'Un aperçu rapide de la façon dont les joueurs décrivent Once Human sur Steam en ce moment.',
-    steam_recent_kicker:'Avis récents',steam_recent_value:'Très positifs',steam_recent_copy:'Le ressenti récent des joueurs met en avant l'ambiance, la progression et la survie en coopération.',
-    steam_eng_kicker:'Avis en anglais',steam_eng_value:'Plutôt positifs',steam_eng_copy:'La base anglophone continue d'évaluer positivement la boucle de survie sur la durée.',
-    steam_source:'Sentiment basé sur la page Steam officielle.',
-    req_eye:'Avant l'installation',req_title:'Votre PC peut-il <span class="c">le faire tourner ?</span>',req_lead:'Conçu pour Windows. Le meilleur confort demande de l'espace libre, un internet stable et un SSD.',
-    req_min_badge:'Minimum',req_rec_badge:'Recommandé',req_os:'OS',req_cpu:'Processeur',req_ram:'Mémoire',req_gpu:'Carte graphique',req_dx:'DirectX',req_net:'Réseau',req_storage:'Stockage',req_notes:'Notes',
-    req_min_os:'Windows 10 64-bit Operating System',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Connexion internet haut débit',req_min_storage:'90 GB d'espace libre',req_min_notes:'SSD fortement recommandé',
-    req_rec_os:'Windows 10 64-bit Operating System',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Connexion internet haut débit',req_rec_storage:'90 GB d'espace libre',req_rec_notes:'SSD fortement recommandé',
-    req_micro:'Windows 10/11 • Internet haut débit requis • 90 GB libres • SSD fortement recommandé'
     close_eye:'Le Brouillard N\'Attend Pas',
     close_title:'Votre Histoire de Survie Commence <span class="c">Maintenant</span>',
     close_sub:'Once Human ne coûte rien pour entrer. Le monde est en direct — rempli de joueurs construisant et se battant pour leur territoire. Chaque jour d\'attente est un jour de retard.',
     close_cta:'Revendiquer votre Territoire — Gratuit →',
-    close_micro:'Gratuit · Windows PC · Achats intégrés optionnels',
+    close_micro:'Gratuit · PC & Mobile · Sans carte bancaire',
     fav1_d:'Aucune barrière d\'entrée. Téléchargez et jouez sans dépenser un centime — tout le contenu, toute la progression.',
     fav1_vs:'Autres : entrée payante requise',
     fav2_d:'Un vaste paysage contaminé avec des biomes distincts, des installations souterraines, et une carte pour des centaines d\'heures.',
@@ -3513,10 +3230,10 @@ var I18N={
     hero_title2:'Beobachtet Sie',
     hero_sub:'Die Kontamination hat alles neu geschrieben, was Sie über Überleben wussten. Die Regeln existieren nicht mehr. Die Welt ist feindlich — und draußen lauert etwas mit unendlicher Geduld.',
     hero_cta:'Eintreten wenn Sie sich trauen — Kostenlos',
-    hero_micro:'Kostenlos auf Steam. Windows-PC für das beste Erlebnis empfohlen.',
+    hero_micro:'Millionen von Überlebenden warten. Keine Kreditkarte nötig.',
     watch_trailer:'▶ Trailer ansehen',
     proof_1:'Spieler Weltweit',proof_2:'Riesige Kontaminierte Karte',proof_3:'Kein Paywall, Nur Können',
-    proof_4:'Ihre Regeln',proof_5:'Optionales PvP',proof_6:'Windows-PC',
+    proof_4:'Ihre Regeln',proof_5:'Optionales PvP',proof_6:'Plattformübergreifend',
     core_eye:'Was Sie tun werden',
     core_title:'Der Loop, der <span class="c">nie alt wird</span>',
     core_lead:'Jede Session in Once Human baut auf der vorherigen auf. Erkunden. Sammeln. Bauen. Kämpfen.',
@@ -3604,12 +3321,12 @@ var I18N={
     faq4_q:'Was sind Deviants?',faq4_a:'Anomale Entitäten, die Sie fangen und mit denen Sie sich verbinden können.',
     faq5_q:'Wie funktioniert der Basenbau?',faq5_a:'Beanspruchen Sie Territorium und bauen Sie modular — Wände, Böden, Energie, Fallen.',
     faq6_q:'Gibt es eine Geschichte?',faq6_a:'Beides. Eine echte Erzählung und eine Sandbox koexistieren harmonisch.',
-    faq7_q:'Kann mein PC Once Human ausführen?',faq7_a:'Once Human ist für Windows 10 64-Bit ausgelegt. Das Minimum beginnt bei Intel Core i5-4460, 8 GB RAM, GTX 750 Ti / RX 550, Breitband-Internet und 90 GB freiem Speicher. SSD wird dringend empfohlen.',
+    faq7_q:'Welche PC-Anforderungen gibt es?',faq7_a:'Minimum: i5-4460, 8GB RAM, GTX 970, 50GB. Empfohlen: i7-6700K, 16GB RAM, GTX 1080.',
     faq8_q:'Gibt es regelmäßige Updates?',faq8_a:'Ja. Saisonale Inhalte und neue Zonen alle 6–8 Wochen.',
     faq9_q:'Verliere ich Fortschritte, wenn meine Basis zerstört wird?',faq9_a:'Im PvE-Modus können andere Spieler Ihre Basis nicht zerstören. Blaupausen gehen nie verloren.',
     faq10_q:'Wie groß ist die Spielwelt?',faq10_a:'Über 200 Quadratkilometer. Verschiedene Biome. Nach hunderten von Stunden entdecken Spieler noch neue Orte.',
     faq11_q:'Ist das Spiel Pay-to-Win?',faq11_a:'Nein. Monetarisierung ist nur kosmetisch. Vorteile kommen aus Zeit und Können.',
-    re1:'100% Kostenlos',re2:'Kein Pay-to-Win',re3:'Globale Server',re4:'Sichere Plattform',re5:'Regelmäßige Updates',re6:'Windows-PC',
+    re1:'100% Kostenlos',re2:'Kein Pay-to-Win',re3:'Globale Server',re4:'Sichere Plattform',re5:'Regelmäßige Updates',re6:'Plattformübergreifend',
     sticky_label:'Once Human ist Live',sticky_reassure:'Kostenlos · Keine Kreditkarte',sticky_btn:'Spielen →',
     footer_brand_p:'Ein Open-World-Überlebenserlebnis in einer verseuchten Zukunft. Kostenlos.',
     footer_col1:'Spielen',footer_play1:'Kostenlos herunterladen',footer_play2:'Spielmodi',footer_play3:'Spielstile',footer_play4:'Einsteigerleitfaden',
@@ -3628,27 +3345,18 @@ var I18N={
     terms_h3:'Genauigkeit',terms_p3:'Wir bemühen uns um genaue Informationen, aber Spielfunktionen können sich ändern.',
     terms_h4:'Verbotene Nutzung',terms_p4:'Die Vervielfältigung oder das Scraping dieses Inhalts ist untersagt.',
     terms_h5:'Haftungsbeschränkung',terms_p5:'Diese Seite ist informativ. Wir haften nicht für auf der Grundlage ihres Inhalts getroffene Entscheidungen.',
-    pnum_2:'Offene Welt',pnum_3:'Kostenlos',pnum_4:'Solo & Trupp',pnum_5:'PvE-First',pnum_6:'Windows',stat_coop:'4 Spieler',stat_free:'Kostenlos',cval_massive:'Riesig',cval_medium:'Mittel',cval_small:'Klein',cval_deep:'✓ Tiefgehend',cval_minimal:'Minimal',cval_basic:'Einfach',cval_advanced:'✓ Fortgeschritten',cval_moderate:'Mäßig',cval_unique:'✓ Einzigartig',cval_slow:'Langsam',cval_occasional:'Gelegentlich',
+    pnum_2:'Offene Welt',pnum_3:'Kostenlos',pnum_4:'Solo & Trupp',pnum_5:'PvE-First',pnum_6:'PC & Mehr',stat_coop:'4 Spieler',stat_free:'Kostenlos',cval_massive:'Riesig',cval_medium:'Mittel',cval_small:'Klein',cval_deep:'✓ Tiefgehend',cval_minimal:'Minimal',cval_basic:'Einfach',cval_advanced:'✓ Fortgeschritten',cval_moderate:'Mäßig',cval_unique:'✓ Einzigartig',cval_slow:'Langsam',cval_occasional:'Gelegentlich',
     vp1_h:'Riesige Offene Welt',vp1_p:'Kontaminierte Biome, unterirdische Ruinen und eine Karte, die jede Richtung belohnt.',
     vp2_h:'Tiefes Crafting-System',vp2_p:'Fünf Progressionsstufen. Hunderte von Blueprints. Jedes Freischalten verändert deinen Spielstil.',
     vp3_h:'Co-op Bereit',vp3_p:'Für Trupps bis zu vier gebaut. Weltbosse und Tiefzonen skalieren mit deinem Team.',
     vp4_h:'Null Kosten zum Starten',vp4_p:'Kein Kaufpreis. Kein Abonnement. Kein Gameplay hinter einer Paywall. Reines Können.',
     trail_desc:'Sieh Once Human in Bewegung — die Biome, die Aberrationen, die Basis-Überfälle. Jedes Bild zeigt eine Welt, in der du wirklich überleben wirst.',
     trail_cta:'Jetzt Kostenlos Spielen →',
-    steam_eye:'Steam-Vertrauen',steam_title:'Was Spieler auf <span class="c">Steam</span> sagen',steam_lead:'Ein kurzer Blick darauf, wie Spieler Once Human aktuell auf Steam beschreiben.',
-    steam_recent_kicker:'Aktuelle Rezensionen',steam_recent_value:'Sehr positiv',steam_recent_copy:'Das aktuelle Spielerfeedback hebt Atmosphäre, Fortschritt und Koop-Survival besonders hervor.',
-    steam_eng_kicker:'Englische Rezensionen',steam_eng_value:'Größtenteils positiv',steam_eng_copy:'Die englischsprachige Community bewertet die langfristige Survival-Schleife weiterhin positiv.',
-    steam_source:'Stimmungsbild basierend auf der offiziellen Steam-Seite.',
-    req_eye:'Vor der Installation',req_title:'Kann dein PC es <span class="c">packen?</span>',req_lead:'Für Windows gebaut. Am besten mit genug Speicherplatz, stabilem Internet und einer SSD.',
-    req_min_badge:'Minimum',req_rec_badge:'Empfohlen',req_os:'OS',req_cpu:'Prozessor',req_ram:'Arbeitsspeicher',req_gpu:'Grafik',req_dx:'DirectX',req_net:'Netzwerk',req_storage:'Speicher',req_notes:'Hinweise',
-    req_min_os:'Windows 10 64-bit Operating System',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Breitband-Internetverbindung',req_min_storage:'90 GB verfügbarer Speicher',req_min_notes:'SSD wird dringend empfohlen',
-    req_rec_os:'Windows 10 64-bit Operating System',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Breitband-Internetverbindung',req_rec_storage:'90 GB verfügbarer Speicher',req_rec_notes:'SSD wird dringend empfohlen',
-    req_micro:'Windows 10/11 • Breitband-Internet erforderlich • 90 GB frei • SSD dringend empfohlen'
     close_eye:'Der Nebel Wartet Nicht',
     close_title:'Deine Überlebensgeschichte Beginnt <span class="c">Jetzt</span>',
     close_sub:'Once Human kostet nichts zum Einsteigen. Die Welt ist live — voller Spieler, die Basen bauen und ihr Territorium abstecken. Jeder Tag des Wartens ist ein Rückstand.',
     close_cta:'Territorium Beanspruchen — Kostenlos →',
-    close_micro:'Kostenlos · Windows-PC · Optionale In-Game-Käufe',
+    close_micro:'Kostenlos · PC & Mobile · Keine Kreditkarte erforderlich',
     fav1_d:'Keine Eintrittsbarriere. Lade herunter und spiele ohne einen Cent — alle Inhalte, alle Progression.',
     fav1_vs:'Andere: Kauf erforderlich',
     fav2_d:'Eine riesige kontaminierte Landschaft mit verschiedenen Biomen, unterirdischen Einrichtungen und einer Karte für hunderte Stunden.',
@@ -3671,10 +3379,10 @@ var I18N={
     hero_title2:'Te Está Observando',
     hero_sub:'La contaminación reescribió todo lo que sabías sobre supervivencia. Las reglas han desaparecido. El mundo es hostil — y lo que acecha ahí fuera tiene una paciencia inquietante.',
     hero_cta:'Entra si Te Atreves — Es Gratis',
-    hero_micro:'Gratis en Steam. Se recomienda Windows PC para la mejor experiencia.',
+    hero_micro:'Millones de supervivientes ya están dentro. Sin tarjeta de crédito.',
     watch_trailer:'▶ Ver Tráiler',
     proof_1:'Jugadores en el Mundo',proof_2:'Mapa Contaminado Masivo',proof_3:'Sin Paywalls, Pura Habilidad',
-    proof_4:'Tus Reglas',proof_5:'PvP Opcional',proof_6:'Windows PC',
+    proof_4:'Tus Reglas',proof_5:'PvP Opcional',proof_6:'Multiplataforma',
     core_eye:'Lo que harás',
     core_title:'El Bucle que <span class="c">Nunca Envejece</span>',
     core_lead:'Cada sesión en Once Human se construye sobre la anterior. Explorar. Saquear. Construir. Luchar.',
@@ -3762,12 +3470,12 @@ var I18N={
     faq4_q:'¿Qué son los Deviants?',faq4_a:'Entidades anómalas que capturas y con las que te vinculas.',
     faq5_q:'¿Cómo funciona la construcción de base?',faq5_a:'Reclama territorio y construye libremente con un sistema modular.',
     faq6_q:'¿Hay una historia?',faq6_a:'Ambas. Una narrativa genuina y un sandbox coexisten armoniosamente.',
-    faq7_q:'¿Puede mi PC mover Once Human?',faq7_a:'Once Human está pensado para Windows 10 de 64 bits. El mínimo parte de Intel Core i5-4460, 8 GB de RAM, GTX 750 Ti / RX 550, internet de banda ancha y 90 GB libres. Se recomienda mucho un SSD.',
+    faq7_q:'¿Cuáles son los requisitos del PC?',faq7_a:'Mínimo: i5-4460, 8GB RAM, GTX 970, 50GB. Recomendado: i7-6700K, 16GB RAM, GTX 1080.',
     faq8_q:'¿Tiene actualizaciones regulares?',faq8_a:'Sí. Contenido de temporada y nuevas zonas cada 6-8 semanas.',
     faq9_q:'¿Perderé progreso si destruyen mi base?',faq9_a:'En modo PvE, otros jugadores no pueden destruir tu base. Nunca pierdes planos.',
     faq10_q:'¿Qué tan grande es el mundo del juego?',faq10_a:'Más de 200 kilómetros cuadrados. Diferentes biomas. Tras cientos de horas, los jugadores aún descubren lugares nuevos.',
-    faq11_q:'¿Hay compras dentro del juego?',faq11_a:'Steam indica compras dentro del juego opcionales y funciones online. El foco aquí sigue siendo el bucle de supervivencia free-to-play, la construcción del territorio y la progresión cooperativa.',
-    re1:'100% Gratis',re2:'Sin Pay-to-Win',re3:'Servidores Globales',re4:'Plataforma Segura',re5:'Actualizaciones Regulares',re6:'Windows PC',
+    faq11_q:'¿Es pay-to-win?',faq11_a:'No. La monetización es solo cosmética. La ventaja competitiva viene del tiempo y la habilidad.',
+    re1:'100% Gratis',re2:'Sin Pay-to-Win',re3:'Servidores Globales',re4:'Plataforma Segura',re5:'Actualizaciones Regulares',re6:'Multiplataforma',
     sticky_label:'Once Human está en Vivo',sticky_reassure:'Gratis · Sin tarjeta de crédito',sticky_btn:'Jugar →',
     footer_brand_p:'Una experiencia de supervivencia en mundo abierto en un futuro contaminado. Gratis.',
     footer_col1:'Jugar',footer_play1:'Descargar Gratis',footer_play2:'Modos de Juego',footer_play3:'Estilos de Juego',footer_play4:'Guía para Nuevos Jugadores',
@@ -3786,7 +3494,7 @@ var I18N={
     terms_h3:'Precisión',terms_p3:'Mantenemos información precisa, pero las características del juego pueden cambiar.',
     terms_h4:'Uso Prohibido',terms_p4:'La reproducción o scraping de este contenido está prohibido.',
     terms_h5:'Limitación de Responsabilidad',terms_p5:'Esta página es informativa. No somos responsables de las decisiones tomadas basándose en su contenido.',
-    pnum_2:'Mundo Abierto',pnum_3:'Gratis',pnum_4:'Solo y Escuadrón',pnum_5:'PvE-Primero',pnum_6:'Windows',stat_coop:'4 Jugadores',stat_free:'Gratis',cval_massive:'Masivo',cval_medium:'Mediano',cval_small:'Pequeño',cval_deep:'✓ Profundo',cval_minimal:'Mínimo',cval_basic:'Básico',cval_advanced:'✓ Avanzado',cval_moderate:'Moderado',cval_unique:'✓ Único',cval_slow:'Lento',cval_occasional:'Ocasional',
+    pnum_2:'Mundo Abierto',pnum_3:'Gratis',pnum_4:'Solo y Escuadrón',pnum_5:'PvE-Primero',pnum_6:'PC y Más',stat_coop:'4 Jugadores',stat_free:'Gratis',cval_massive:'Masivo',cval_medium:'Mediano',cval_small:'Pequeño',cval_deep:'✓ Profundo',cval_minimal:'Mínimo',cval_basic:'Básico',cval_advanced:'✓ Avanzado',cval_moderate:'Moderado',cval_unique:'✓ Único',cval_slow:'Lento',cval_occasional:'Ocasional',
     vp1_h:'Mundo Abierto Masivo',vp1_p:'Biomas contaminados, ruinas subterráneas y un mapa que recompensa cada dirección explorada.',
     vp2_h:'Sistema de Crafteo Profundo',vp2_p:'Cinco niveles de progresión. Cientos de planos. Cada desbloqueo transforma tu estilo de juego.',
     vp3_h:'Listo para Co-op',vp3_p:'Diseñado para escuadrones de cuatro. Los jefes mundiales y zonas profundas escalan con tu equipo.',
@@ -3834,40 +3542,19 @@ function getParams(){
 }
 
 /* ---- INIT ---- */
-function detectBrowserLang(){
-  try{
-    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
-    for(var i=0;i<langs.length;i++){
-      var code = String(langs[i]).slice(0,2).toLowerCase();
-      if(I18N[code]) return code;
-    }
-  }catch(e){}
-  return 'en';
-}
-
-function detectBrowserTheme(){
-  try{
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }catch(e){}
-  return 'dark';
-}
-
 function init(){
+  // URL params
   var params=getParams();
 
-  // Language priority: URL > manual preference > browser
+  // Language
   var pl=params.get('lang');
   var sl=lsGet('lp_lang');
-  var sm=lsGet('lp_lang_manual');
-  var lang= pl || ((sm==='1' && sl && I18N[sl]) ? sl : detectBrowserLang());
-  setLang(lang,true,!!pl || sm==='1');
+  var bl=navigator.language?navigator.language.slice(0,2).toLowerCase():'en';
+  var lang=pl||sl||(I18N[bl]?bl:'en');
+  setLang(lang,true);
 
-  // Theme priority: URL > manual preference > browser
-  var pt=params.get('theme');
-  var st=lsGet('lp_theme');
-  var stm=lsGet('lp_theme_manual');
-  var theme = pt || ((stm==='1' && st) ? st : detectBrowserTheme());
-  setTheme(theme,true,!!pt || stm==='1');
+  // Theme — dark mode only
+  setTheme('dark',true);
 
   // Modal from URL
   var modal=params.get('modal');
@@ -3891,11 +3578,10 @@ function init(){
 
 
 /* ---- LANGUAGE ---- */
-function setLang(lang,silent,isManual){
+function setLang(lang,silent){
   if(!I18N[lang])lang='en';
   currentLang=lang;
   lsSet('lp_lang',lang);
-  lsSet('lp_lang_manual', isManual ? '1' : '0');
   document.documentElement.lang=lang;
 
   // Update URL
@@ -3929,11 +3615,9 @@ function setLang(lang,silent,isManual){
 }
 
 /* ---- THEME ---- */
-function setTheme(theme,silent,isManual){
-  theme = theme==='light' ? 'light' : 'dark';
+function setTheme(theme,silent){
   currentTheme=theme;
   lsSet('lp_theme',theme);
-  lsSet('lp_theme_manual', isManual ? '1' : '0');
   document.documentElement.setAttribute('data-theme',theme);
 
   var p=getParams();
@@ -3947,7 +3631,7 @@ function setTheme(theme,silent,isManual){
 }
 
 function toggleTheme(){
-  setTheme(currentTheme==='dark'?'light':'dark', false, true);
+  setTheme(currentTheme==='dark'?'light':'dark');
 }
 
 /* ---- SCROLL ---- */
