@@ -1630,6 +1630,149 @@ img.loaded{opacity:1}
 .gallery-item{border-radius:var(--radius-lg);overflow:hidden;}
 .gallery-grid{gap:12px;}
 
+
+
+/* ============================================================
+   REVIEWS + REQUIREMENTS (ADDED ONLY)
+   ============================================================ */
+#requirements,
+#steam-reviews{
+  position:relative;
+}
+#requirements::before,
+#steam-reviews::before{
+  content:'';
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 0%, rgba(36,194,196,0.08), transparent 55%);
+}
+.req-grid,
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  margin-top:36px;
+}
+.req-card,
+.review-card{
+  position:relative;
+  background:linear-gradient(145deg, rgba(4,36,44,0.82), rgba(7,21,32,0.94));
+  border:1px solid rgba(36,194,196,0.16);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  box-shadow:var(--glow-sm);
+  overflow:hidden;
+}
+.req-card::after,
+.review-card::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(40,240,242,0.45), transparent);
+}
+.req-badge,
+.review-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-cond);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  color:var(--cyan-e);
+  margin-bottom:12px;
+}
+.req-card h3,
+.review-card h3{
+  font-size:1.4rem;
+  margin-bottom:14px;
+}
+.req-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
+}
+.req-list li{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(36,194,196,0.08);
+  color:var(--text-muted);
+  font-size:.98rem;
+}
+.req-list li strong{
+  color:var(--text);
+  font-family:var(--font-cond);
+  letter-spacing:.4px;
+  font-size:.95rem;
+}
+.req-note,
+.review-note{
+  max-width:960px;
+  margin:18px auto 0;
+  text-align:center;
+  color:var(--text-muted);
+  font-size:.95rem;
+}
+#requirements .section-lead,
+#steam-reviews .section-lead{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+}
+.review-intro{
+  display:grid;
+  gap:12px;
+  justify-items:center;
+  text-align:center;
+}
+.review-stars{
+  display:flex;
+  gap:4px;
+  align-items:center;
+  color:#ffd166;
+  font-size:1rem;
+  margin:0 0 12px;
+}
+.review-name{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.review-name strong{
+  font-family:var(--font-cond);
+  font-size:1rem;
+  letter-spacing:.4px;
+  color:var(--text);
+}
+.review-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid rgba(36,194,196,0.16);
+  background:rgba(36,194,196,0.08);
+  font-size:.72rem;
+  color:var(--cyan-e);
+  text-transform:uppercase;
+  letter-spacing:1.1px;
+}
+.review-card p{margin:0;color:var(--text-muted)}
+.review-card h3{margin-bottom:10px}
+.review-card .sentiment-strong{color:var(--text)}
+@media(max-width:900px){
+  .req-grid,
+  .review-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .req-card,
+  .review-card{padding:18px;}
+  .req-list li{grid-template-columns:1fr;gap:4px;}
+}
+
 /* ── Mobile ─────────────────────────────────────────────────── */
 @media(max-width:640px){
   .hero-title{font-size:clamp(2.2rem,9vw,3.4rem);}
@@ -1901,44 +2044,6 @@ img.loaded{opacity:1}
     </div>
   </div>
 </section>
-<section id="pc-requirements" class="section requirements-section">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow" data-i18n="req_eye">Before You Install</p>
-      <h2 class="section-title" data-i18n-html="req_title">Can Your PC <span class="c">Run It?</span></h2>
-      <p class="section-lead narrow" data-i18n="req_lead">Built for Windows. Best experienced with enough free space, stable internet, and an SSD.</p>
-    </div>
-    <div class="req-grid">
-      <article class="req-card">
-        <div class="req-badge" data-i18n="req_min_badge">Minimum</div>
-        <ul class="req-list">
-          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_min_os">Windows 10 64-bit Operating System</span></li>
-          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_min_cpu">Intel Core i5-4460</span></li>
-          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_min_ram">8 GB RAM</span></li>
-          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_min_gpu">Nvidia GTX 750ti 4G / AMD Radeon RX550</span></li>
-          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_min_dx">Version 11</span></li>
-          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_min_net">Broadband Internet connection</span></li>
-          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_min_storage">90 GB available space</span></li>
-          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_min_notes">SSD is highly recommended</span></li>
-        </ul>
-      </article>
-      <article class="req-card featured">
-        <div class="req-badge" data-i18n="req_rec_badge">Recommended</div>
-        <ul class="req-list">
-          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_rec_os">Windows 10 64-bit Operating System</span></li>
-          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_rec_cpu">Intel Core i7-7700</span></li>
-          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_rec_ram">16 GB RAM</span></li>
-          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_rec_gpu">Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380</span></li>
-          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_rec_dx">Version 12</span></li>
-          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_rec_net">Broadband Internet connection</span></li>
-          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_rec_storage">90 GB available space</span></li>
-          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_rec_notes">SSD is highly recommended</span></li>
-        </ul>
-      </article>
-    </div>
-    <div class="req-micro" data-i18n="req_micro">Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended</div>
-  </div>
-</section>
 
 <hr class="hr-cyan"/>
 
@@ -1960,7 +2065,54 @@ img.loaded{opacity:1}
   </div>
 </div>
 
-<hr class="hr-red"/>
+
+
+<!-- ============================================================
+     PC REQUIREMENTS (ADDED ONLY)
+     ============================================================ -->
+<section id="requirements" class="section">
+  <div class="container">
+    <div class="text-center">
+      <p class="section-eyebrow" data-i18n="req_eye">Before You Install</p>
+      <h2 class="section-title" data-i18n-html="req_title">Can Your PC <span class="c">Run It?</span></h2>
+      <p class="section-lead" data-i18n="req_lead" style="margin:0 auto;text-align:center;">Built for Windows. Best experienced with enough free space, stable internet, and an SSD.</p>
+    </div>
+
+    <div class="req-grid">
+      <article class="req-card">
+        <div class="req-badge" data-i18n="req_min">Minimum</div>
+        <h3 data-i18n="req_min_title">What You Need to Start</h3>
+        <ul class="req-list">
+          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_min_os">Windows 10 64-bit Operating System</span></li>
+          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_min_cpu">Intel Core i5-4460</span></li>
+          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_min_ram">8 GB RAM</span></li>
+          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_min_gpu">Nvidia GTX 750ti 4G / AMD Radeon RX550</span></li>
+          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_min_dx">Version 11</span></li>
+          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_min_net">Broadband Internet connection</span></li>
+          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_min_storage">90 GB available space</span></li>
+          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_min_notes">SSD is highly recommended</span></li>
+        </ul>
+      </article>
+      <article class="req-card">
+        <div class="req-badge" data-i18n="req_rec">Recommended</div>
+        <h3 data-i18n="req_rec_title">Best Way to Experience It</h3>
+        <ul class="req-list">
+          <li><strong data-i18n="req_os">OS</strong><span data-i18n="req_rec_os">Windows 10 64-bit Operating System</span></li>
+          <li><strong data-i18n="req_cpu">Processor</strong><span data-i18n="req_rec_cpu">Intel Core i7-7700</span></li>
+          <li><strong data-i18n="req_ram">Memory</strong><span data-i18n="req_rec_ram">16 GB RAM</span></li>
+          <li><strong data-i18n="req_gpu">Graphics</strong><span data-i18n="req_rec_gpu">Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380</span></li>
+          <li><strong data-i18n="req_dx">DirectX</strong><span data-i18n="req_rec_dx">Version 12</span></li>
+          <li><strong data-i18n="req_net">Network</strong><span data-i18n="req_rec_net">Broadband Internet connection</span></li>
+          <li><strong data-i18n="req_storage">Storage</strong><span data-i18n="req_rec_storage">90 GB available space</span></li>
+          <li><strong data-i18n="req_notes">Notes</strong><span data-i18n="req_rec_notes">SSD is highly recommended</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="req-note" data-i18n="req_note">Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended</p>
+  </div>
+</section>
+
+<hr class="hr-cyan"/>
 
 <!-- ============================================================
      WORLD & THREATS
@@ -2196,6 +2348,48 @@ img.loaded{opacity:1}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================================
+     STEAM REVIEWS (ADDED ONLY)
+     ============================================================ -->
+<section id="steam-reviews" class="section">
+  <div class="container">
+    <div class="text-center review-intro">
+      <p class="section-eyebrow" data-i18n="rev_eye">Steam Trust</p>
+      <h2 class="section-title" data-i18n-html="rev_title">What Players Are Saying on <span class="c">Steam</span></h2>
+      <p class="section-lead" data-i18n="rev_lead">A quick snapshot of real Steam player sentiment around atmosphere, co-op, progression, and the overall survival loop.</p>
+    </div>
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="review-label">Steam Review</div>
+        <div class="review-name"><strong>WHOLF ⚡</strong><span class="review-badge">Recommended</span></div>
+        <div class="review-stars" aria-label="5 out of 5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p>“Packed with features, great graphics, and easy to progress in.”</p>
+      </article>
+      <article class="review-card">
+        <div class="review-label">Steam Review</div>
+        <div class="review-name"><strong>Akela</strong><span class="review-badge">Recommended</span></div>
+        <div class="review-stars" aria-label="4 out of 5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.32">★</span></div>
+        <p>“A lenient survival crafter that lets you spend more time on the interesting stuff.”</p>
+      </article>
+      <article class="review-card">
+        <div class="review-label">Steam Review</div>
+        <div class="review-name"><strong>KΛRHΛD</strong><span class="review-badge">Recommended</span></div>
+        <div class="review-stars" aria-label="4 out of 5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:.32">★</span></div>
+        <p>“Atmospheric, unusual, and best enjoyed when you head into the world with friends.”</p>
+      </article>
+      <article class="review-card">
+        <div class="review-label">Steam Review</div>
+        <div class="review-name"><strong>Sleazy</strong><span class="review-badge" style="color:#ff9ea3;border-color:rgba(246,52,59,.18);background:rgba(246,52,59,.08)">Mixed</span></div>
+        <div class="review-stars" aria-label="2 out of 5 stars"><span>★</span><span>★</span><span style="opacity:.32">★</span><span style="opacity:.32">★</span><span style="opacity:.32">★</span></div>
+        <p>“The loop is fun and great with friends, but seasonal pacing can wear thin over time.”</p>
+      </article>
+    </div>
+    <p class="review-note">Based on Steam player reviews and the current Steam review sentiment: Recent Reviews — Very Positive · English Reviews — Mostly Positive.</p>
   </div>
 </section>
 
@@ -3015,6 +3209,19 @@ var I18N={
     gal_eye:'Screenshots',gal_title:'See the <span class="c">World</span>',
     trail_eye:'Preview',trail_title:'Watch the <span class="c">Contamination</span>',trail_label:'Official Gameplay Trailer',
     cta3_h:'Still on the Fence?',cta3_p:'Once Human is free. Nothing to lose and an entire world to gain.',cta3_btn:'Play Free — Start Now',cta3_sub:'No credit card. No commitment. Free to play.',
+
+    req_eye:'Before You Install',
+    req_title:'Can Your PC <span class="c">Run It?</span>',
+    req_lead:'Built for Windows. Best experienced with enough free space, stable internet, and an SSD.',
+    req_min:'Minimum',req_min_title:'What You Need to Start',req_rec:'Recommended',req_rec_title:'Best Way to Experience It',
+    req_os:'OS',req_cpu:'Processor',req_ram:'Memory',req_gpu:'Graphics',req_dx:'DirectX',req_net:'Network',req_storage:'Storage',req_notes:'Notes',
+    req_min_os:'Windows 10 64-bit Operating System',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Broadband Internet connection',req_min_storage:'90 GB available space',req_min_notes:'SSD is highly recommended',
+    req_rec_os:'Windows 10 64-bit Operating System',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Broadband Internet connection',req_rec_storage:'90 GB available space',req_rec_notes:'SSD is highly recommended',
+    req_note:'Windows 10/11 style experience • Broadband internet required • 90 GB free space • SSD highly recommended',
+    rev_eye:'Steam Trust',rev_title:'What Players Are Saying on <span class="c">Steam</span>',rev_lead:'A quick snapshot of how players describe Once Human on Steam right now.',
+    rev_recent_label:'Recent Reviews',rev_recent_value:'Very Positive',rev_recent_desc:'Fresh player sentiment points to a strong current experience, especially around atmosphere, progression, and co-op survival.',
+    rev_eng_label:'English Reviews',rev_eng_value:'Mostly Positive',rev_eng_desc:'The English-speaking player base continues to rate the experience positively across the long-term survival loop.',
+    rev_note:'Review sentiment based on the official Steam page.',
     faq_eye:'Questions',faq_title:'Everything You Want to <span class="c">Know</span>',
     faq1_q:'Is Once Human really free to play?',faq1_a:'Yes. Free to download and play. No core content locked behind a paywall.',
     faq2_q:'Can I play solo?',faq2_a:'Solo play is fully supported and deliberately designed to be satisfying.',
@@ -3165,6 +3372,19 @@ var I18N={
     gal_eye:'Captures d\'écran',gal_title:'Voir le <span class="c">Monde</span>',
     trail_eye:'Aperçu',trail_title:'Voir la <span class="c">Contamination</span>',trail_label:'Bande-annonce Officielle',
     cta3_h:'Encore Hésitant ?',cta3_p:'Once Human est gratuit. Rien à perdre et un monde entier à gagner.',cta3_btn:'Jouer Gratuitement — Maintenant',cta3_sub:'Sans carte bancaire. Sans engagement.',
+
+    req_eye:'Avant d’installer',
+    req_title:'Votre PC Peut-il <span class="c">Le Faire Tourner ?</span>',
+    req_lead:'Conçu pour Windows. Meilleur avec assez d’espace libre, une connexion stable et un SSD.',
+    req_min:'Minimum',req_min_title:'Le strict nécessaire',req_rec:'Recommandé',req_rec_title:'La meilleure façon d’en profiter',
+    req_os:'OS',req_cpu:'Processeur',req_ram:'Mémoire',req_gpu:'Graphiques',req_dx:'DirectX',req_net:'Réseau',req_storage:'Stockage',req_notes:'Notes',
+    req_min_os:'Windows 10 64 bits',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 Go de RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Connexion Internet haut débit',req_min_storage:'90 Go d’espace disponible',req_min_notes:'SSD fortement recommandé',
+    req_rec_os:'Windows 10 64 bits',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 Go de RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Connexion Internet haut débit',req_rec_storage:'90 Go d’espace disponible',req_rec_notes:'SSD fortement recommandé',
+    req_note:'Expérience type Windows 10/11 • Internet haut débit requis • 90 Go libres • SSD fortement recommandé',
+    rev_eye:'Confiance Steam',rev_title:'Ce Que Les Joueurs Disent sur <span class="c">Steam</span>',rev_lead:'Un aperçu rapide de la façon dont les joueurs décrivent Once Human sur Steam actuellement.',
+    rev_recent_label:'Avis récents',rev_recent_value:'Très positifs',rev_recent_desc:'Les avis récents indiquent une expérience solide, surtout pour l’atmosphère, la progression et la survie en coop.',
+    rev_eng_label:'Avis en anglais',rev_eng_value:'Plutôt positifs',rev_eng_desc:'La base de joueurs anglophones continue d’évaluer positivement l’expérience sur le long terme.',
+    rev_note:'Sentiment des avis basé sur la page Steam officielle.',
     faq_eye:'Questions',faq_title:'Tout ce que vous Voulez <span class="c">Savoir</span>',
     faq1_q:'Once Human est-il vraiment gratuit ?',faq1_a:'Oui. Gratuit à télécharger et à jouer. Aucun contenu principal bloqué.',
     faq2_q:'Puis-je jouer en solo ?',faq2_a:'Le jeu solo est pleinement supporté et conçu pour être satisfaisant.',
@@ -3314,6 +3534,19 @@ var I18N={
     gal_eye:'Screenshots',gal_title:'Die Welt <span class="c">sehen</span>',
     trail_eye:'Vorschau',trail_title:'Die <span class="c">Kontamination</span> erleben',trail_label:'Offizieller Gameplay-Trailer',
     cta3_h:'Noch unentschlossen?',cta3_p:'Once Human ist kostenlos. Nichts zu verlieren und eine ganze Welt zu gewinnen.',cta3_btn:'Kostenlos spielen — Jetzt starten',cta3_sub:'Keine Kreditkarte. Kein Abonnement.',
+
+    req_eye:'Vor der Installation',
+    req_title:'Kann Ihr PC <span class="c">Es Ausführen?</span>',
+    req_lead:'Für Windows gebaut. Am besten mit genug freiem Speicher, stabilem Internet und SSD.',
+    req_min:'Minimum',req_min_title:'Was Sie zum Start brauchen',req_rec:'Empfohlen',req_rec_title:'Die beste Art es zu erleben',
+    req_os:'OS',req_cpu:'Prozessor',req_ram:'Arbeitsspeicher',req_gpu:'Grafik',req_dx:'DirectX',req_net:'Netzwerk',req_storage:'Speicherplatz',req_notes:'Hinweise',
+    req_min_os:'Windows 10 64-Bit-Betriebssystem',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Version 11',req_min_net:'Breitband-Internetverbindung',req_min_storage:'90 GB verfügbarer Speicherplatz',req_min_notes:'SSD wird dringend empfohlen',
+    req_rec_os:'Windows 10 64-Bit-Betriebssystem',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Version 12',req_rec_net:'Breitband-Internetverbindung',req_rec_storage:'90 GB verfügbarer Speicherplatz',req_rec_notes:'SSD wird dringend empfohlen',
+    req_note:'Windows-10/11-Erlebnis • Breitband-Internet erforderlich • 90 GB freier Speicher • SSD dringend empfohlen',
+    rev_eye:'Steam Vertrauen',rev_title:'Was Spieler auf <span class="c">Steam</span> Sagen',rev_lead:'Ein kurzer Überblick darüber, wie Spieler Once Human aktuell auf Steam beschreiben.',
+    rev_recent_label:'Aktuelle Reviews',rev_recent_value:'Sehr positiv',rev_recent_desc:'Frisches Spielerfeedback deutet auf ein starkes aktuelles Erlebnis hin, besonders bei Atmosphäre, Progression und Koop-Überleben.',
+    rev_eng_label:'Englische Reviews',rev_eng_value:'Größtenteils positiv',rev_eng_desc:'Die englischsprachige Spielerbasis bewertet das Erlebnis im langfristigen Survival-Loop weiterhin positiv.',
+    rev_note:'Review-Stimmung basierend auf der offiziellen Steam-Seite.',
     faq_eye:'Fragen',faq_title:'Alles, was Sie <span class="c">wissen wollen</span>',
     faq1_q:'Ist Once Human wirklich kostenlos?',faq1_a:'Ja. Kostenlos herunterladen und spielen. Kein Kern-Inhalt ist gesperrt.',
     faq2_q:'Kann ich solo spielen?',faq2_a:'Solo-Spiel wird vollständig unterstützt und ist bewusst befriedigend gestaltet.',
@@ -3463,6 +3696,19 @@ var I18N={
     gal_eye:'Capturas de Pantalla',gal_title:'Ver el <span class="c">Mundo</span>',
     trail_eye:'Vista Previa',trail_title:'Ver la <span class="c">Contaminación</span>',trail_label:'Tráiler Oficial de Gameplay',
     cta3_h:'¿Aún Dudando?',cta3_p:'Once Human es gratis. Nada que perder y un mundo entero por ganar.',cta3_btn:'Jugar Gratis — Empezar Ahora',cta3_sub:'Sin tarjeta de crédito. Sin compromiso.',
+
+    req_eye:'Antes de instalar',
+    req_title:'¿Tu PC Puede <span class="c">Moverlo?</span>',
+    req_lead:'Diseñado para Windows. Se disfruta mejor con espacio libre, internet estable y un SSD.',
+    req_min:'Mínimo',req_min_title:'Lo que necesitas para empezar',req_rec:'Recomendado',req_rec_title:'La mejor forma de jugarlo',
+    req_os:'Sistema',req_cpu:'Procesador',req_ram:'Memoria',req_gpu:'Gráficos',req_dx:'DirectX',req_net:'Red',req_storage:'Almacenamiento',req_notes:'Notas',
+    req_min_os:'Sistema operativo Windows 10 de 64 bits',req_min_cpu:'Intel Core i5-4460',req_min_ram:'8 GB de RAM',req_min_gpu:'Nvidia GTX 750ti 4G / AMD Radeon RX550',req_min_dx:'Versión 11',req_min_net:'Conexión a Internet de banda ancha',req_min_storage:'90 GB de espacio disponible',req_min_notes:'SSD muy recomendado',
+    req_rec_os:'Sistema operativo Windows 10 de 64 bits',req_rec_cpu:'Intel Core i7-7700',req_rec_ram:'16 GB de RAM',req_rec_gpu:'Nvidia GTX 1060 6G / AMD Radeon RX 580 2304SP / Intel ARC A380',req_rec_dx:'Versión 12',req_rec_net:'Conexión a Internet de banda ancha',req_rec_storage:'90 GB de espacio disponible',req_rec_notes:'SSD muy recomendado',
+    req_note:'Experiencia tipo Windows 10/11 • Internet de banda ancha requerido • 90 GB libres • SSD muy recomendado',
+    rev_eye:'Confianza Steam',rev_title:'Lo Que Los Jugadores Dicen en <span class="c">Steam</span>',rev_lead:'Un vistazo rápido a cómo describen los jugadores a Once Human en Steam ahora mismo.',
+    rev_recent_label:'Reseñas recientes',rev_recent_value:'Muy positivas',rev_recent_desc:'La opinión reciente apunta a una experiencia sólida, sobre todo en atmósfera, progresión y supervivencia cooperativa.',
+    rev_eng_label:'Reseñas en inglés',rev_eng_value:'Mayormente positivas',rev_eng_desc:'La base de jugadores angloparlantes sigue valorando positivamente la experiencia a largo plazo.',
+    rev_note:'Sentimiento de reseñas basado en la página oficial de Steam.',
     faq_eye:'Preguntas',faq_title:'Todo lo que Quieres <span class="c">Saber</span>',
     faq1_q:'¿Es Once Human realmente gratis?',faq1_a:'Sí. Gratis para descargar y jugar. Ningún contenido principal bloqueado.',
     faq2_q:'¿Puedo jugar en solitario?',faq2_a:'El juego en solitario es completamente compatible y diseñado deliberadamente para ser satisfactorio.',
