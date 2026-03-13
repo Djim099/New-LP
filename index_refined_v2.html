@@ -1948,13 +1948,13 @@ img.loaded{opacity:1}
   <div class="topbar-controls">
     <!-- Language -->
     <div role="group" aria-label="Language selection">
-      <button class="lang-btn" data-lang="en" aria-label="English" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="en" aria-label="English" onclick="setLang('en', false, true)">EN</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="fr" aria-label="Français" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="fr" aria-label="Français" onclick="setLang('fr', false, true)">FR</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="de" aria-label="Deutsch" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" data-lang="de" aria-label="Deutsch" onclick="setLang('de', false, true)">DE</button>
       <span class="lang-sep" aria-hidden="true">/</span>
-      <button class="lang-btn" data-lang="es" aria-label="Español" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" data-lang="es" aria-label="Español" onclick="setLang('es', false, true)">ES</button>
     </div>
 
   </div>
@@ -3513,7 +3513,7 @@ var I18N={
     hero_title2:'Beobachtet Sie',
     hero_sub:'Die Kontamination hat alles neu geschrieben, was Sie über Überleben wussten. Die Regeln existieren nicht mehr. Die Welt ist feindlich — und draußen lauert etwas mit unendlicher Geduld.',
     hero_cta:'Eintreten wenn Sie sich trauen — Kostenlos',
-    hero_micro:'Millionen von Überlebenden warten. Keine Kreditkarte nötig.',
+    hero_micro:'Kostenlos auf Steam. Windows-PC für das beste Erlebnis empfohlen.',
     watch_trailer:'▶ Trailer ansehen',
     proof_1:'Spieler Weltweit',proof_2:'Riesige Kontaminierte Karte',proof_3:'Kein Paywall, Nur Können',
     proof_4:'Ihre Regeln',proof_5:'Optionales PvP',proof_6:'Windows-PC',
@@ -3671,7 +3671,7 @@ var I18N={
     hero_title2:'Te Está Observando',
     hero_sub:'La contaminación reescribió todo lo que sabías sobre supervivencia. Las reglas han desaparecido. El mundo es hostil — y lo que acecha ahí fuera tiene una paciencia inquietante.',
     hero_cta:'Entra si Te Atreves — Es Gratis',
-    hero_micro:'Millones de supervivientes ya están dentro. Sin tarjeta de crédito.',
+    hero_micro:'Gratis en Steam. Se recomienda Windows PC para la mejor experiencia.',
     watch_trailer:'▶ Ver Tráiler',
     proof_1:'Jugadores en el Mundo',proof_2:'Mapa Contaminado Masivo',proof_3:'Sin Paywalls, Pura Habilidad',
     proof_4:'Tus Reglas',proof_5:'PvP Opcional',proof_6:'Windows PC',
@@ -3834,19 +3834,40 @@ function getParams(){
 }
 
 /* ---- INIT ---- */
+function detectBrowserLang(){
+  try{
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for(var i=0;i<langs.length;i++){
+      var code = String(langs[i]).slice(0,2).toLowerCase();
+      if(I18N[code]) return code;
+    }
+  }catch(e){}
+  return 'en';
+}
+
+function detectBrowserTheme(){
+  try{
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }catch(e){}
+  return 'dark';
+}
+
 function init(){
-  // URL params
   var params=getParams();
 
-  // Language
+  // Language priority: URL > manual preference > browser
   var pl=params.get('lang');
   var sl=lsGet('lp_lang');
-  var bl=navigator.language?navigator.language.slice(0,2).toLowerCase():'en';
-  var lang=pl||sl||(I18N[bl]?bl:'en');
-  setLang(lang,true);
+  var sm=lsGet('lp_lang_manual');
+  var lang= pl || ((sm==='1' && sl && I18N[sl]) ? sl : detectBrowserLang());
+  setLang(lang,true,!!pl || sm==='1');
 
-  // Theme — dark mode only
-  setTheme('dark',true);
+  // Theme priority: URL > manual preference > browser
+  var pt=params.get('theme');
+  var st=lsGet('lp_theme');
+  var stm=lsGet('lp_theme_manual');
+  var theme = pt || ((stm==='1' && st) ? st : detectBrowserTheme());
+  setTheme(theme,true,!!pt || stm==='1');
 
   // Modal from URL
   var modal=params.get('modal');
@@ -3870,10 +3891,11 @@ function init(){
 
 
 /* ---- LANGUAGE ---- */
-function setLang(lang,silent){
+function setLang(lang,silent,isManual){
   if(!I18N[lang])lang='en';
   currentLang=lang;
   lsSet('lp_lang',lang);
+  lsSet('lp_lang_manual', isManual ? '1' : '0');
   document.documentElement.lang=lang;
 
   // Update URL
@@ -3907,9 +3929,11 @@ function setLang(lang,silent){
 }
 
 /* ---- THEME ---- */
-function setTheme(theme,silent){
+function setTheme(theme,silent,isManual){
+  theme = theme==='light' ? 'light' : 'dark';
   currentTheme=theme;
   lsSet('lp_theme',theme);
+  lsSet('lp_theme_manual', isManual ? '1' : '0');
   document.documentElement.setAttribute('data-theme',theme);
 
   var p=getParams();
@@ -3923,7 +3947,7 @@ function setTheme(theme,silent){
 }
 
 function toggleTheme(){
-  setTheme(currentTheme==='dark'?'light':'dark');
+  setTheme(currentTheme==='dark'?'light':'dark', false, true);
 }
 
 /* ---- SCROLL ---- */
